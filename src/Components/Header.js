@@ -18,9 +18,6 @@ const Header = () => {
         <Link to="/">Home</Link>
       </NavItem>
       <NavItem>
-        <Link to="/summoner">Summoner</Link>
-      </NavItem>
-      <NavItem>
         <Link to="/hi">Hi</Link>
       </NavItem>
     </Nav>
