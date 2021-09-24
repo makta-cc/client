@@ -26,11 +26,19 @@ const Summoner = () => {
         console.log(id);
 
         const {
-          data: { summoner },
+          data: { summoner, match },
         } = await SummonerAPI.summoner(id);
 
         setSummoner(summoner);
+        setMatch(match);
 
+        setAccount({
+          name: id,
+          profileIconId: summoner.profileIconId,
+          summonerLevel: summoner.summonerLevel,
+        });
+
+        console.log(match);
         const rank = [
           { queueType: "RANKED_SOLO_5x5", isRank: false },
           { queueType: "RANKED_FLEX_SR", isRank: false },
@@ -44,9 +52,7 @@ const Summoner = () => {
           }
         });
 
-        setAccount(summoner.account);
         setRank(rank);
-        setMatch(summoner.matchs);
 
         if (!summoner) {
           throw new Error("정보를 불러오는데 실패했습니다.");
