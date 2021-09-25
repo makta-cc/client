@@ -38,7 +38,6 @@ const Summoner = () => {
           summonerLevel: summoner.summonerLevel,
         });
 
-        console.log(match);
         const rank = [
           { queueType: "RANKED_SOLO_5x5", isRank: false },
           { queueType: "RANKED_FLEX_SR", isRank: false },
@@ -74,15 +73,11 @@ const Summoner = () => {
         {loading ? "loading..." : null}
         {account && <AccountDetail account={account} />}
         {rank && rank.map((r, i) => <RankDetail rank={r} key={i} />)}
-        {matchs && <MatchDetail match={matchs[0]} id={id} />}
+        {matchs &&
+          matchs.map((m, i) => <MatchDetail match={m} id={id} key={i} />)}
       </div>
     </>
   );
 };
 
 export default Summoner;
-
-/*
-{matchs &&
-          matchs.map((match, i) => <MatchDetail match={match} key={i} />)}
-*/
